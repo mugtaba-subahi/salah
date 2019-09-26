@@ -7,7 +7,7 @@
     </div>
 
     <app-section class="app-section" />
-    <div class="prayers" :class="{passed: prayer.passed}" v-for="prayer in data" :key="prayer.english">
+    <div class="prayers" :class="{passed: prayer.passed, isNext: prayer.isNext}" v-for="prayer in data" :key="prayer.english">
       <p class="prayers__item prayers__item--english">{{ prayer.english }}</p>
       <p class="prayers__item">{{ prayer.time }}</p>
       <p class="prayers__item prayers__item--arabic">{{ prayer.arabic }}</p>
@@ -42,16 +42,13 @@ export default {
     setupNextPrayer() {
       const nextPrayer = this.data.find(current => !current.passed);
 
-      if (!nextPrayer) {
-        this.nextPrayer.passed = true;
-        return;
-      }
+      if (!nextPrayer) return;
 
       this.nextPrayer = nextPrayer;
+      this.nextPrayer.isNext = true;
       this.startTimer();
     },
     startTimer() {
-      console.log(this.nextPrayer.time);
       const remainderMS = timeHandler(this.nextPrayer.time, "remainder");
 
       const now = new Date();
@@ -71,6 +68,7 @@ export default {
         );
 
         this.data[justPassedIndex].passed = true;
+        this.data[justPassedIndex].isNext = false;
         this.setupNextPrayer();
       });
     }
@@ -92,6 +90,7 @@ body {
   font-family: "Roboto";
   font-size: 1rem;
   line-height: 1.5rem;
+  user-select: none;
 }
 </style> 
 
@@ -108,10 +107,9 @@ body {
   margin-bottom: 32px;
   display: grid;
   justify-items: center;
-  grid-row-gap: 3px;
 
   &__item {
-    opacity: 0.6;
+    opacity: 0.5;
     font-size: 0.8889rem;
     line-height: 1.5rem;
   }
@@ -134,12 +132,14 @@ body {
   grid-template-columns: repeat(3, 1fr);
   transition: 0.3s;
   opacity: 0.5;
+  // background-color: red;
+  padding: 0 20px;
+  border-radius: 3px;
 
   &__item {
     justify-items: center;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    margin-bottom: 8px;
+    padding-top: 12px;
+    padding-bottom: 12px;
 
     &--english {
       justify-self: start;
@@ -148,12 +148,17 @@ body {
     &--arabic {
       justify-self: end;
       font-size: 1.25rem;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.3px;
     }
   }
 }
 
+.isNext,
 .passed {
   opacity: 1;
+}
+
+.isNext {
+  background-color: #0d6cda;
 }
 </style>

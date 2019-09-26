@@ -1,6 +1,6 @@
 <template>
   <section class="section-component">
-    <p class="heading">Prayer Times</p>
+    <p class="heading">London, UK</p>
     <p class="date">{{ date }}</p>
     <img class="img" src="@/assets/mosque.svg" alt="Icon of a mosque" />
   </section>
@@ -23,7 +23,6 @@ export default {
 
 <style lang="scss" scoped>
 .section-component {
-  margin-bottom: 12px;
   display: grid;
   grid-auto-rows: max-content;
   grid-template-columns: 1fr auto;
@@ -33,9 +32,8 @@ export default {
 }
 
 .heading {
-  margin-bottom: 5px;
   letter-spacing: 0.5px;
-  opacity: 0.7;
+  opacity: 0.5;
   grid-area: heading;
 }
 .date {
