@@ -18,7 +18,7 @@ export default async () => {
     { time: sunrise, passed: timeHandler(sunrise, 'isPassed'), english: 'Sunrise', arabic: 'الشروق' },
     { time: dhuhr, passed: timeHandler(dhuhr, 'isPassed'), english: 'Dhuhr', arabic: 'الظهر' },
     { time: asr, passed: timeHandler(asr, 'isPassed'), english: 'Asr', arabic: 'العصر' },
-    { time: magrib, passed: timeHandler(magrib, 'isPassed'), english: 'Magrib', arabic: 'المغرب' },
-    { time: isha, passed: timeHandler(isha, 'isPassed'), english: 'Isha', arabic: 'العشاء' }
+    { time: '20:15', passed: timeHandler('20:15', 'isPassed'), english: 'Magrib', arabic: 'المغرب' },
+    { time: '20:16', passed: timeHandler('20:16', 'isPassed'), english: 'Isha', arabic: 'العشاء' }
   ];
 };

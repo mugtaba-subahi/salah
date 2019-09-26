@@ -42,7 +42,10 @@ export default {
     setupNextPrayer() {
       const nextPrayer = this.data.find(current => !current.passed);
 
-      if (!nextPrayer) return;
+      if (!nextPrayer) {
+        this.nextPrayer.passed = true;
+        return;
+      }
 
       this.nextPrayer = nextPrayer;
       this.nextPrayer.isNext = true;
@@ -50,8 +53,6 @@ export default {
     },
     startTimer() {
       const remainderMS = timeHandler(this.nextPrayer.time, "remainder");
-
-      const now = new Date();
       const timer = new TinyTimer();
 
       timer.start(remainderMS);
