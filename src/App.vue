@@ -149,6 +149,7 @@ body {
     &--arabic {
       justify-self: end;
       font-size: 1.25rem;
+      line-height: 1.4rem;
       letter-spacing: 0.3px;
     }
   }
