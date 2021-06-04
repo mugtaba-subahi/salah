@@ -12,7 +12,7 @@ export default (name: string, time: string): string => {
     if (+dhuhr_hour < 5) return convertTime(`${time} PM`, 'hh:MM');
   }
 
-  const pmPrayers: string[] = ['Asr', 'Magrib', 'Isha'];
+  const pmPrayers = ['Asr', 'Magrib', 'Isha'];
   if (pmPrayers.indexOf(name) !== -1) return convertTime(`${time} PM`, 'hh:MM');
 
   return time;

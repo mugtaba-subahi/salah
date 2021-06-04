@@ -21,6 +21,7 @@ describe('convert12To24hr helper', () => {
     } catch (error) {
       expect(error.message).toBe('Invalid time');
       expect(mockConvertTime).toBeCalledTimes(0);
+      expect(mockValidateTimeHelper).toBeCalledTimes(1);
 
       done();
     }
@@ -34,7 +35,8 @@ describe('convert12To24hr helper', () => {
     } catch (error) {
       expect(error.message).toBe('Invalid time');
       expect(mockConvertTime).toBeCalledTimes(0);
-      
+      expect(mockValidateTimeHelper).toBeCalledTimes(1);
+
       done();
     }
   });
@@ -47,6 +49,7 @@ describe('convert12To24hr helper', () => {
     } catch (error) {
       expect(error.message).toBe('Invalid time');
       expect(mockConvertTime).toBeCalledTimes(0);
+      expect(mockValidateTimeHelper).toBeCalledTimes(1);
 
       done();
     }
@@ -58,18 +61,21 @@ describe('convert12To24hr helper', () => {
     const fajr: string = handler('Fajr', '15:15');
     expect(fajr).toBe('15:15');
     expect(mockConvertTime).toBeCalledTimes(0);
+    expect(mockValidateTimeHelper).toBeCalledTimes(1);
 
     mockValidateTimeHelper.mockReturnValueOnce(true);
 
     const sunrise: string = handler('Sunrise', '18:18');
     expect(sunrise).toBe('18:18');
     expect(mockConvertTime).toBeCalledTimes(0);
+    expect(mockValidateTimeHelper).toBeCalledTimes(2);
 
     mockValidateTimeHelper.mockReturnValueOnce(true);
 
     const anyInput: string = handler('any input', '18:18');
     expect(anyInput).toBe('18:18');
     expect(mockConvertTime).toBeCalledTimes(0);
+    expect(mockValidateTimeHelper).toBeCalledTimes(3);
 
     done();
   });
@@ -80,6 +86,7 @@ describe('convert12To24hr helper', () => {
     const time: string = handler('Dhuhr', '10:12');
     expect(time).toBe('10:12');
     expect(mockConvertTime).toBeCalledTimes(0);
+    expect(mockValidateTimeHelper).toBeCalledTimes(1);
 
     done();
   });
@@ -91,6 +98,7 @@ describe('convert12To24hr helper', () => {
     const time: string = handler('Dhuhr', '00:00');
     expect(time).toBe('12:00');
     expect(mockConvertTime).toBeCalledTimes(1);
+    expect(mockValidateTimeHelper).toBeCalledTimes(1);
 
     done();
   });
@@ -102,6 +110,7 @@ describe('convert12To24hr helper', () => {
     const time: string = handler('Dhuhr', '01:35');
     expect(time).toBe('13:35');
     expect(mockConvertTime).toBeCalledTimes(1);
+    expect(mockValidateTimeHelper).toBeCalledTimes(1);
 
     done();
   });
@@ -113,6 +122,7 @@ describe('convert12To24hr helper', () => {
     const time: string = handler('Asr', '02:53');
     expect(time).toBe('14:53');
     expect(mockConvertTime).toBeCalledTimes(1);
+    expect(mockValidateTimeHelper).toBeCalledTimes(1);
 
     done();
   });
@@ -124,6 +134,7 @@ describe('convert12To24hr helper', () => {
     const time: string = handler('Magrib', '06:33');
     expect(time).toBe('18:33');
     expect(mockConvertTime).toBeCalledTimes(1);
+    expect(mockValidateTimeHelper).toBeCalledTimes(1);
 
     done();
   });
@@ -135,6 +146,7 @@ describe('convert12To24hr helper', () => {
     const time: string = handler('Isha', '09:27');
     expect(time).toBe('21:27');
     expect(mockConvertTime).toBeCalledTimes(1);
+    expect(mockValidateTimeHelper).toBeCalledTimes(1);
 
     done();
   });

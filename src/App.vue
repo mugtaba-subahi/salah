@@ -1,7 +1,7 @@
 <template>
   <Timer />
   <Heading class="heading" />
-  <Prayer v-for="prayer in State().prayers" :key="prayer" v-bind="prayer" />
+  <Prayer v-for="prayer in State.prayers" :key="prayer" v-bind="prayer" />
 </template>
 
 <script lang="ts" setup>

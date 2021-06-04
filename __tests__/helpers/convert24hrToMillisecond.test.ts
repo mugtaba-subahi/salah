@@ -65,7 +65,7 @@ describe('convert24hrToMillisecond helper', () => {
   it('should pass when passing correct 24hr time format', done => {
     const result: number = handler('22:10');
     expect(typeof result).toBe('number');
-    
+
     done();
   });
 });
