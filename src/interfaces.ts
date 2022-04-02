@@ -23,3 +23,8 @@ export interface IPrayer {
   arabic: string;
   isNext: boolean;
 }
+
+export interface ICacheData {
+  updatedAt: Date;
+  prayers: IApi;
+}
