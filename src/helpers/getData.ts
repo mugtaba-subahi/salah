@@ -23,11 +23,12 @@ export default async (url: string): Promise<IApi> => {
   const updatedAt = new Date(data.updatedAt).getDate();
 
   if (today === updatedAt) {
-    console.log('valid cache for today');
+    console.log('compared dates', { updatedAt, today });
+    console.log('valid cache for today', { data });
     return data.prayers;
   }
 
-  console.log('outdated cache');
+  console.log('outdated cache', { data });
 
   // cache outdated. set new cache
   const prayers = await getPrayerTimes(url)
