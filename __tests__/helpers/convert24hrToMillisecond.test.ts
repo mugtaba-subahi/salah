@@ -6,7 +6,7 @@ describe('convert24hrToMillisecond helper', () => {
       // @ts-expect-error
       handler(13);
       done.fail();
-    } catch (error) {
+    } catch (error: any) {
       expect(error.message).toBe('Invalid time');
 
       done();
@@ -16,7 +16,7 @@ describe('convert24hrToMillisecond helper', () => {
       // @ts-expect-error
       handler({});
       done.fail();
-    } catch (error) {
+    } catch (error: any) {
       expect(error.message).toBe('Invalid time');
 
       done();
@@ -26,7 +26,7 @@ describe('convert24hrToMillisecond helper', () => {
       // @ts-expect-error
       handler([]);
       done.fail();
-    } catch (error) {
+    } catch (error: any) {
       expect(error.message).toBe('Invalid time');
 
       done();
@@ -37,7 +37,7 @@ describe('convert24hrToMillisecond helper', () => {
     try {
       handler('100');
       done.fail();
-    } catch (error) {
+    } catch (error: any) {
       expect(error.message).toBe('Invalid time');
 
       done();
@@ -46,7 +46,7 @@ describe('convert24hrToMillisecond helper', () => {
     try {
       handler('100:10');
       done.fail();
-    } catch (error) {
+    } catch (error: any) {
       expect(error.message).toBe('Invalid time');
 
       done();
@@ -55,7 +55,7 @@ describe('convert24hrToMillisecond helper', () => {
     try {
       handler('66:66');
       done.fail();
-    } catch (error) {
+    } catch (error: any) {
       expect(error.message).toBe('Invalid time');
 
       done();
@@ -65,7 +65,7 @@ describe('convert24hrToMillisecond helper', () => {
   it('should pass when passing correct 24hr time format', done => {
     const result: number = handler('22:10');
     expect(typeof result).toBe('number');
-    
+
     done();
   });
 });

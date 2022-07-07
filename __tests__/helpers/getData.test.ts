@@ -11,7 +11,7 @@ describe('getData helper', () => {
     try {
       await handler('random url');
       done.fail();
-    } catch (error) {
+    } catch (error: any) {
       expect(mockFetch).toHaveBeenCalledTimes(1);
       expect(mockFetch).toHaveBeenCalledWith('random url');
       expect(error).toBe('failed');

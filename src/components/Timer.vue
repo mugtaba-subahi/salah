@@ -7,7 +7,7 @@
 </template>
 
 <script lang="ts" setup>
-export { state as State } from '../store';
+import { state as State } from '../store';
 </script>
 
 <style lang="postcss" scoped>

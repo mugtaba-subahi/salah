@@ -7,20 +7,20 @@
 <script lang="ts" setup>
 import { onMounted, Component } from 'vue';
 import { url } from './config';
-import { IApi } from './interfaces'; // @ts-ignore
-import TimerComponent from './components/Timer.vue'; // @ts-ignore
+import { IApi } from './interfaces';
+import TimerComponent from './components/Timer.vue';
 import HeadingComponent from './components/Heading.vue';
 import PrayerComponent from './components/Prayer.vue';
 import getDataHelper from './helpers/getData';
 import setDataHelper from './helpers/setData';
 import setConvertedTimeHelper from './helpers/setConvertedTime';
 import setNextPrayerHelper from './helpers/setNextPrayer';
-export { state as State } from './store';
+import { state as State } from './store';
 
 // components
-export const Timer: Component = TimerComponent;
-export const Heading: Component = HeadingComponent;
-export const Prayer: Component = PrayerComponent;
+const Timer: Component = TimerComponent;
+const Heading: Component = HeadingComponent;
+const Prayer: Component = PrayerComponent;
 
 // hooks
 onMounted(async () => {

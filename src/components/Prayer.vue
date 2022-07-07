@@ -6,17 +6,14 @@
   </div>
 </template>
 
-<script lang="ts" setup="props">
-export default {
-  props: {
-    english: { type: String, required: true },
-    time: { type: String, required: true },
-    arabic: { type: String, required: true },
-    passed: { type: Boolean, required: true },
-    isNext: { type: Boolean, required: true }
-  },
-  inheritAttrs: false
-};
+<script lang="ts" setup>
+defineProps({
+  english: { type: String, required: true },
+  time: { type: String, required: true },
+  arabic: { type: String, required: true },
+  passed: { type: Boolean, required: true },
+  isNext: { type: Boolean, required: true }
+})
 </script>
 
 <style lang="postcss" scoped>

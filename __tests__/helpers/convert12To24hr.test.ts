@@ -18,7 +18,7 @@ describe('convert12To24hr helper', () => {
       // @ts-expect-error
       handler('any input', 13);
       done.fail();
-    } catch (error) {
+    } catch (error: any) {
       expect(error.message).toBe('Invalid time');
       expect(mockConvertTime).toBeCalledTimes(0);
 
@@ -31,10 +31,10 @@ describe('convert12To24hr helper', () => {
       // @ts-expect-error
       handler('any input', {});
       done.fail();
-    } catch (error) {
+    } catch (error: any) {
       expect(error.message).toBe('Invalid time');
       expect(mockConvertTime).toBeCalledTimes(0);
-      
+
       done();
     }
   });
@@ -44,7 +44,7 @@ describe('convert12To24hr helper', () => {
       // @ts-expect-error
       handler('any input', []);
       done.fail();
-    } catch (error) {
+    } catch (error: any) {
       expect(error.message).toBe('Invalid time');
       expect(mockConvertTime).toBeCalledTimes(0);
 
