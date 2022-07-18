@@ -1,10 +1,10 @@
-import validateTimeHelper from './validateTime';
+import validateTimeHelper from "./validateTime";
 
 export default (time: string): number => {
   const isValidTime: boolean = validateTimeHelper(time);
-  if (!isValidTime) throw { error: true, message: 'Invalid time' };
+  if (!isValidTime) throw { error: true, message: "Invalid time" };
 
-  const [hour, minute] = time.split(':');
+  const [hour, minute] = time.split(":");
 
   const now = new Date();
   now.setHours(+hour);

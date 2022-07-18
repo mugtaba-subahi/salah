@@ -1,6 +1,6 @@
-import { state as State } from '../store';
-import convert12To24hrHelper from './convert12To24hr';
-import convert24hrToMillisecondHelper from './convert24hrToMillisecond';
+import { state as State } from "../store";
+import convert12To24hrHelper from "./convert12To24hr";
+import convert24hrToMillisecondHelper from "./convert24hrToMillisecond";
 
 export default (): void => {
   for (let [index, prayer] of State().prayers.entries()) {

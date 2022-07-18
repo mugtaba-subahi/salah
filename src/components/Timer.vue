@@ -7,19 +7,19 @@
 </template>
 
 <script lang="ts" setup>
-import { state as State } from '../store';
+import { state as State } from "../store";
 </script>
 
 <style lang="postcss" scoped>
 .timer {
-  @apply .mb-8 .grid .justify-items-center;
+  @apply mb-8 grid justify-items-center;
 
   &__item {
-    @apply .opacity-50 .text-sm;
+    @apply opacity-50 text-sm;
   }
 
   &--time {
-    @apply .opacity-100 .text-2xl;
+    @apply opacity-100 text-2xl;
   }
 }
 </style>

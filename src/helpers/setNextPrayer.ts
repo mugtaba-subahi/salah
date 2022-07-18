@@ -1,6 +1,6 @@
-import { IPrayer } from '../interfaces';
-import { state as State } from '../store';
-import setTimerHelper from './setTimer';
+import { IPrayer } from "../interfaces";
+import { state as State } from "../store";
+import setTimerHelper from "./setTimer";
 
 export default (): void => {
   State().nextPrayerIndex = State().prayers.findIndex((item: IPrayer) => !item.passed);

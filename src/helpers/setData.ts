@@ -1,5 +1,5 @@
-import { IApi, IPrayer } from '../interfaces';
-import { state as State, read as Read } from '../store';
+import { IApi, IPrayer } from "../interfaces";
+import { state as State, read as Read } from "../store";
 
 export default (data: IApi): void => {
   const preparePrayer = (name: string, index: number): IPrayer => ({
